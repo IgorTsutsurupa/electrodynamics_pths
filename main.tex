@@ -7,16 +7,20 @@
 \setlength{\headheight}{0mm}
 \setlength{\headsep}{0mm}
 \setlength{\textheight}{230mm}
- 
+
 \begin{document}
- 
-\title{Молекулярная физика и термодинамика}
-\author{ФТШ, 2015б}
-\date{20 февраля 2014 г.}
-\maketitle
+
+\pagenumbering{gobble}
+\clearpage
+\thispagestyle{empty}
+
+\include{./tex/title}
 \include{./tex/preface}
 
 \tableofcontents
+
+\clearpage
+\pagenumbering{arabic}
  
 \include{./tex/ch_1}
 \include{./tex/ch_2}
