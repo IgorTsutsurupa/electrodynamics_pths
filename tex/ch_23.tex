@@ -1,0 +1,38 @@
+\section{Распределение молекул по скоростям}
+
+
+	Понятно что вероятность встретить частицу с каким-то нужным промежутком скоростей для разных скоростей и промежутков разный, поэтому можно вести такую функцию распределения по скоростям --- так называемое распределение Максвелла. \par
+	Так как распределения скоростей по направлениям статистически независимы, функции плотности вероятности одинаковы и можно написать что:
+		$$dP(v_x ,v_y , v_z )=\varphi (v_x) \varphi (v_y) \varphi (v_z) dv_x dv_y dv_z$$ или
+	\begin{equation}\label{bar}
+		f(v) = \varphi (v_x) \varphi (v_y) \varphi (v_z),
+	\end{equation}
+	где $dP$ -- вероятность нахождения скоростной точки в объеме $dv_x dv_y dv_z = d^3 v$, а $f(v)$ -- плотность вероятности нахождения точки со скоростью $v$.
+	Логарифмируя выражение ~(\ref{bar}), получаем:
+		$$\ln(f(v)) = \ln\varphi(v_x) + \ln\varphi(v_y) + \ln\varphi(v_z))$$
+	Дифференцируя по $v_x$, имеем:
+		$$\frac{f'(v)}{f(v)} \frac{\partial v}{\partial v_x} = \frac{\varphi '(v_x)}{\varphi(v_x)}.$$
+	Так как  $\dfrac{\partial v}{\partial v_x} =  \dfrac{v_x}{v}$, то 
+		$$\frac{1}{v} \frac{f'(v)}{f(v)} = \frac{1}{v_x} \frac{\varphi '(v_x)}{\varphi(v_x)}$$
+	Правая часть не зависит от $v_y$  и $v_z$, значит, и левая от $v_y$  и $v_z$ не зависит. Однако $v_x$ и $ v_y$ равноправны, следовательно левая часть не зависит также и от $v_x$, то есть данное выражение может лишь равняться некоторой константе.
+	$$\frac{1}{v} \frac{f'(v)}{f(v)} = - \alpha$$
+	$$\frac{\varphi '(v_x)}{\varphi(v_x)} = - \alpha v_x $$
+	$$\varphi (v_x) = A e^{-\frac{\alpha {v_x}^2}{2}} $$
+	$$\int\limits_{-\infty} ^ {\infty} \varphi(v_x) \, dv_x = 1$$  
+	$$A \int\limits_{-\infty} ^ {\infty} e^{-\frac{\alpha {v_x}^2}{2}} \, dv_x =  A \, \sqrt{\frac{2}{\alpha}} \, \int\limits_{-\infty} ^ {\infty} e^{- u^2} \, du =  A \, \sqrt{\frac{2}{\alpha}} \, \sqrt{\pi} = 1 \qquad \Rightarrow \qquad A = \sqrt{\frac{\alpha}{2 \pi}}$$
+	значит
+	$$\varphi (v_x) = \sqrt{\frac{\alpha}{2 \pi}} e^{-\frac{\alpha {v_x}^2}{2}}$$
+	по определению температуры
+	$$\left\langle\frac{mv^2}{2}\right\rangle = \frac{3}{2}kT $$
+	поэтому $$\left\langle v^2\right\rangle = \frac{3kT}{m}$$
+
+			$$\langle v_x^2 \rangle = \langle v_y^2 \rangle = \langle v_z^2 \rangle = \frac{1}{3} \langle v^2 \rangle = \frac{kT}{m}$$
+		С другой строны
+	$$\langle v_x^2 \rangle = \int\limits_{-\infty} ^ {\infty} {v_x}^2  \varphi(v_x)  dv_x = \sqrt{\frac{\alpha}{2 \pi}}  \int\limits_{-\infty} ^ {\infty} v_x^2  e^{-\frac{\alpha {v_x}^2}{2}}  dv_x = \sqrt{\frac{\alpha}{2 \pi}}\left[ -2  \frac{d}{d \alpha} \int\limits_{-\infty} ^ {\infty} e^{-\frac{\alpha {v_x}^2}{2}}  dv_x \right] \hm=$$  $$ = -2  \sqrt{\frac{\alpha}{2 \pi}}  \frac{d}{d \alpha} \sqrt{\frac{2 \pi}{\alpha}} = - 2 \sqrt{\alpha} \left(-\frac{1}{2} \alpha^{-\frac{3}{2}}\right) = \frac{1}{\alpha}$$
+	значит
+	$$\alpha = \frac{m}{kT}$$
+	$$\varphi (v_x) = \left(\frac{m}{2\pi kT}\right)^{\frac{1}{2}} \, e^{-\frac{mv_x^2}{2kT}}$$
+	Учитывая  ~(\ref{bar})
+	$$dP (v_x, v_y, v_z) = \left(\frac{m}{2\pi kT}\right)^{\frac{3}{2}} e^{-\frac{mv_x^2 + mv_y^2 + mv_z^2}{2kT}}{dv_x dv_y dv_z}$$
+	так как $dv_x dv_y dv_z$ объём то она может быть переписана как объём слоя шара т.е $4\pi v^2 dv$
+	$$dP(v) = 4\pi  v^ 2\left(\frac{m}{2\pi kT}\right)^{\frac{3}{2}} e^{-\frac{mv^2}{2kT}} dv$$
